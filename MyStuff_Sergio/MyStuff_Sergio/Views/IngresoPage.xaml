@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyStuff_Sergio.Views.IngresoPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="MyStuffLogin.jpg"
+             >
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Padding="40,0,40,0">
+
+            <Entry x:Name="TxtUsuario" Placeholder="Nombre de usuario" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" >
+                
+                
+                
+            </Entry>
+
+            <Entry x:Name="TxtPassword" Placeholder="Contraseña" FontSize="Large" IsPassword="True" TextColor="WhiteSmoke" PlaceholderColor="Aqua" >
+
+
+
+            </Entry>
+
+            <Switch x:Name="SwVerPassword" IsToggled="False" Toggled="CmdVerPassword"/>
+
+            <Button x:Name="BtnEntrar" Text="Ingresar" FontSize="Large" Clicked="CmdIngresar" CornerRadius="15"/>
+
+            <Button x:Name="BtnRegistrarse" Text="Registrase" FontSize="Large" Clicked="CmdRegistarse" CornerRadius="15"  />
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+    
+</ContentPage>

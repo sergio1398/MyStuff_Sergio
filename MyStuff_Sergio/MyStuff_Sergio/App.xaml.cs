@@ -14,7 +14,9 @@ namespace MyStuff_Sergio
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            //MainPage = new AppShell();
+
+            MainPage = new NavigationPage(new IngresoPage());
         }
 
         protected override void OnStart()

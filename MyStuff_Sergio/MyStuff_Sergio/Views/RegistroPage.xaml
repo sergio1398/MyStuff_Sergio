@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyStuff_Sergio.Views.RegistroPage"
+             BackgroundImageSource="MyStuffLogin.jpg">
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Padding="40,0,40,0">
+
+            <Entry x:Name="TxtUsuario" Placeholder="Email de usuario" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" />
+            
+            <Entry x:Name="TxtNombreUsuario" Placeholder="Nombre" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" />
+            
+            <Entry x:Name="TxtPassword" Placeholder="Email de usuario" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" IsPassword="True" />
+
+            <Entry x:Name="TxtPassword2" Placeholder="Teléfono" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" IsPassword="True" />
+
+            <Entry x:Name="TxtBackUpEmail" Placeholder="Email de Respaldo" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" />
+
+            <Button x:Name="BtnAceptar" Text="Ingresar" FontSize="Large" Clicked="CmdAceptar" CornerRadius="15"/>
+
+            <Button x:Name="BtnCancelar" Text="Cancelar" FontSize="Large" Clicked="CmdCancelar" CornerRadius="15" BackgroundColor="Firebrick"/>
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
