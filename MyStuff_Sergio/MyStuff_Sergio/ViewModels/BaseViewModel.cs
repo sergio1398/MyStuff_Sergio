@@ -1,5 +1,5 @@
 ﻿using MyStuff_Sergio.Models;
-using MyStuff_Sergio.Services;
+//using MyStuff_Sergio.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ namespace MyStuff_Sergio.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+       // public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
         public bool IsBusy

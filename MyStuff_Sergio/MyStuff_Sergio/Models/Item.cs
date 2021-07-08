@@ -1,11 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MyStuff_Sergio.Models
 {
-    public class Item
+    public partial class Item
     {
-        public string Id { get; set; }
-        public string Text { get; set; }
-        public string Description { get; set; }
+        public Item()
+        {
+            Multimedia = new HashSet<Multimedium>();
+        }
+
+        public int ItemId { get; set; }
+        public string ItemName { get; set; }
+        public string ItemDescription { get; set; }
+        public decimal ItemCost { get; set; }
+        public string SerialNumber { get; set; }
+        public string InvoiceNumber { get; set; }
+        public decimal ExRate { get; set; }
+        public int? BrandId { get; set; }
+        public int? ItemCategoryId { get; set; }
+        public int? ItemLocalizationId { get; set; }
+        public int? SupplierId { get; set; }
+        public int UserId { get; set; }
+        public int CurrencyId { get; set; }
+
+        public virtual Brand Brand { get; set; }
+        public virtual Currency Currency { get; set; }
+        public virtual ItemCategory ItemCategory { get; set; }
+        public virtual ItemLocalization ItemLocalization { get; set; }
+        public virtual Supplier Supplier { get; set; }
+        public virtual User User { get; set; }
+        public virtual ICollection<Multimedium> Multimedia { get; set; }
     }
 }
