@@ -7,7 +7,7 @@ namespace MyStuff_Sergio
     class ObjetosGlobales
     {
 
-        public static string RutaProduccion = "http://192.168.0.14:45457/api/"; 
+        public static string RutaProduccion = "http://192.168.0.8:45455/api/"; ///http://192.168.0.8:45455/
         public static string RutaPrueba = "http://192.168.0.14:45455/api/";
 
         //agregamos la info de seguridad ya sea JWT o ApiKey como en este caso

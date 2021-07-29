@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Padding="40,0,40,0">
 
-            <Entry x:Name="TxtUsuario" Placeholder="Email de usuario" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" />
+            <Entry x:Name="TxtUsuario" Placeholder="Email de usuario" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" Keyboard="Email" />
             
             <Entry x:Name="TxtNombreUsuario" Placeholder="Nombre" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" />
             
@@ -15,9 +15,9 @@
 
             <Entry x:Name="TxtPassword2" Placeholder="Confirmar contraseña" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" IsPassword="True" />
 
-            <Entry x:Name="NumeroTelefono" Placeholder="Teléfono" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" IsPassword="True" />
-            
-            <Entry x:Name="TxtBackUpEmail" Placeholder="Email de Respaldo" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" />
+            <Entry x:Name="NumeroTelefono" Placeholder="Teléfono" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" IsPassword="True" Keyboard="Telephone" />
+
+            <Entry x:Name="TxtBackUpEmail" Placeholder="Email de Respaldo" FontSize="Large" TextColor="WhiteSmoke" PlaceholderColor="Aqua" Keyboard="Email" />
 
             <Button x:Name="BtnAceptar" Text="Ingresar" FontSize="Large" Clicked="CmdAceptar" CornerRadius="15"/>
 

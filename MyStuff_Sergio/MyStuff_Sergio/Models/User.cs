@@ -92,6 +92,45 @@ namespace MyStuff_Sergio.Models
         }
 
 
+        public async Task<bool> ValidarUsuario()
+        {
+
+            bool R = false;
+            //se toma la info base de la ruta del API y se agrega el sufijo correspondientepara completar vla ruta de consumo
+            //paso 1.3.3.1 ejemplo de secuencia
+
+            string Ruta = string.Format("Users/ValidateUser2?email={0}&password={1}", this.Username,this.UserPassword);
+
+            //string SufijoRuta = string.Format("users/{0}/{1}", Username, UserPassword);
+
+            string RutaConsumo = ObjetosGlobales.RutaProduccion + Ruta;
+
+            var client = new RestClient(RutaConsumo);
+
+            var request = new RestRequest(Method.GET);
+
+            // se garega la info de seguridad
+
+            request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKeyValue);
+
+            //ejecuta de forma asincrona el proceso
+
+            IRestResponse Respuesta = await client.ExecuteAsync(request);
+
+            HttpStatusCode CodigoRespuesta = Respuesta.StatusCode;
+
+            if (CodigoRespuesta == HttpStatusCode.OK)
+            {
+                R = true;
+            }
+
+
+            return R;
+
+
+        }
+
+
     }
 
 
