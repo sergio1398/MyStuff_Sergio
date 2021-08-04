@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using RestSharp;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace MyStuff_Sergio.Models
 {
@@ -31,5 +35,6 @@ namespace MyStuff_Sergio.Models
         public virtual Supplier Supplier { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<Multimedium> Multimedia { get; set; }
+
     }
 }

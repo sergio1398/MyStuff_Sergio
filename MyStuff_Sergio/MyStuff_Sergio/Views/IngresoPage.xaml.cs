@@ -39,7 +39,7 @@ namespace MyStuff_Sergio.Views
 
             if (R)
             {
-               await DisplayAlert("Bienvenido", "Usuario correcto","OK");
+                //await DisplayAlert("Bienvenido", "Usuario correcto","OK");
                 await Navigation.PushAsync(new SelectorAccionPage());
 
             }

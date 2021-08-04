@@ -1,19 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyStuff_Sergio.Views.SelectorAccionPage">
+             x:Class="MyStuff_Sergio.Views.SelectorAccionPage" Title="Seleccione la acción deseada">
     <ContentPage.Content>
 
 
         <Grid>
-            <Label Text="Seleccione la acción deseada"
-                VerticalOptions="StartAndExpand" 
-                HorizontalOptions="StartAndExpand" />
 
             <FlexLayout x:Name="FlAcciones" Wrap="Wrap" JustifyContent="SpaceEvenly" Direction="Row" Padding="0,0,0,0" AlignContent="Center">
 
-                <Button Text="Agregar Items" x:Name="BtnAgregar" BackgroundColor="Aqua" HeightRequest="100" WidthRequest="100" 
-                        HorizontalOptions="Center" Clicked="BtnAgregar_Clicked"/>
+                <Button Text="Agregar Items" x:Name="BtnAgregar" BackgroundColor="ForestGreen" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center" Clicked="BtnAgregar_Clicked" CornerRadius="5" Margin="0,0,0,10"/>
+
+                <Button Text="Ver Activos" x:Name="BtnVerActivos" BackgroundColor="DarkBlue" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center" Clicked="BtnVerActivos_Clicked" CornerRadius="5"  Margin="0,0,0,10"/>
+
+                <Button Text="Configuración" x:Name="BtnConfiguracion" BackgroundColor="Aqua" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center" Clicked="BtnConfiguracion_Clicked" CornerRadius="5"  Margin="0,0,0,10"/>
+
+
+                <Button Text="Marcas" x:Name="BtnMarcas" BackgroundColor="DarkCyan" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center" Clicked="BtnMarcas_Clicked" CornerRadius="5"  Margin="0,0,0,10"/>
+
+                <Button Text="Categorias" x:Name="BtnCategoria" BackgroundColor="DeepSkyBlue" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center" Clicked="BtnCategoria_Clicked" CornerRadius="5"  Margin="0,0,0,10"/>
+                
+                <Button Text="Localización" x:Name="BtnLocalizacion" BackgroundColor="Firebrick" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center" Clicked="BtnLocalizacion_Clicked" CornerRadius="5"  Margin="0,0,0,10"/>
+
+                <Button Text="Proveedores" x:Name="BtnProveedores" BackgroundColor="Indigo" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center" Clicked="BtnProveedores_Clicked" CornerRadius="5"  Margin="0,0,0,10"/>
+
+                <Button Text="Salir" x:Name="BtnSalir" BackgroundColor="DarkRed" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center" Clicked="BtnSalir_Clicked" CornerRadius="5"  Margin="0,0,0,10"/>
+
+
 
             </FlexLayout>
             
