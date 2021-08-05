@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System.Net;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace MyStuff_Sergio.Models
 {
@@ -13,6 +14,8 @@ namespace MyStuff_Sergio.Models
         {
             Multimedia = new HashSet<Multimedium>();
         }
+
+        public string DisplayPhoto { get; set; }
 
         public int ItemId { get; set; }
         public string ItemName { get; set; }
@@ -27,6 +30,8 @@ namespace MyStuff_Sergio.Models
         public int? SupplierId { get; set; }
         public int UserId { get; set; }
         public int CurrencyId { get; set; }
+        public string DisplayImageUri { get; set; }
+        public string DisplayImageUrilowRes { get; set; }
 
         public virtual Brand Brand { get; set; }
         public virtual Currency Currency { get; set; }
@@ -35,6 +40,44 @@ namespace MyStuff_Sergio.Models
         public virtual Supplier Supplier { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<Multimedium> Multimedia { get; set; }
+
+
+
+
+
+        public ObservableCollection<Item> ListarItems()
+        {
+
+            ObservableCollection<Item> ListaItems = null;
+
+            string Ruta = string.Format("Items/GetItemsList?UserId={0}", this.UserId);
+
+            string RutaConsumo = ObjetosGlobales.RutaProduccion + Ruta;
+
+            var MyItems = new RestClient(RutaConsumo);
+
+            var Request = new RestRequest(Method.GET);
+
+            Request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKeyValue);
+
+            IRestResponse Response = MyItems.Execute(Request);
+
+            HttpStatusCode CodigoRespuesta = Response.StatusCode;
+
+            if (CodigoRespuesta == HttpStatusCode.OK)
+            {
+                return ListaItems = JsonConvert.DeserializeObject<ObservableCollection<Item>>(Response.Content);
+                
+            }
+
+            return ListaItems;
+
+        }
+
+
+
+
+
 
     }
 }

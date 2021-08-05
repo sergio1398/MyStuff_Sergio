@@ -22,9 +22,9 @@ namespace MyStuff_Sergio.Views
             await Navigation.PushAsync(new AgregarItemPage());
         }
 
-        private void BtnVerActivos_Clicked(object sender, EventArgs e)
+        private async void BtnVerActivos_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new ListaItemsPage());
         }
 
         private void BtnConfiguracion_Clicked(object sender, EventArgs e)

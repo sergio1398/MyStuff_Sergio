@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyStuff_Sergio.Views.ListaItemsPage"
+             Title="Lista de Activos">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout>
+
+                <ListView x:Name="LstItems" ItemTapped="LstItems_ItemTapped" RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <ImageCell Text="{Binding ItemName}" TextColor="Black" 
+                                       Detail="{Binding ItemDescription}"
+                                       ImageSource="{Binding DisplayImageUri}"
+                                       
+                                       />
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -24,6 +24,8 @@ namespace MyStuff_Sergio.ViewModels
         public Currency MyCurrency { get; set; }
         public ObservableCollection<Currency> Currency { get; set; }
 
+        public Item MyItem { get; set; }
+
         public ItemViewModel()
         {
             MiItemcategoria = new ItemCategory();
@@ -31,12 +33,35 @@ namespace MyStuff_Sergio.ViewModels
             MyItemLocalization = new ItemLocalization();
             MySupplier = new Supplier();
             MyCurrency = new Currency();
+            MyItem = new Item();
 
             ObtenerCategoria();
             ObtenerMarcas();
             GetItemLocalization();
             GetSuppliers();
             GetCurrency();
+
+        }
+
+        public ObservableCollection<Item> ListarItems()
+        {
+            if (IsBusy) return null;
+            IsBusy = true;
+
+            try
+            {
+                return MyItem.ListarItems();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+
 
         }
 
