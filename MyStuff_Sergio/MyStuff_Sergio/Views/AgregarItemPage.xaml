@@ -23,15 +23,11 @@
 
             <Entry x:Name="TxtDepreciacion" Placeholder="Nombre de depreciación"/>
 
-            <Picker x:Name="CboMarca" Title="Marca" >
+            <Picker x:Name="CboMarca" Title="Marca"
+                    ItemsSource="{Binding MyBrands}"
+                    ItemDisplayBinding="{Binding BrandName}"
+                    />
 
-                <Picker.Items>
-
-                    <x:String>Panasonic</x:String>
-
-                </Picker.Items>
-
-            </Picker>
 
             <Picker x:Name="CboCategoria" Title="Categoría" 
                     ItemsSource="{Binding Tiposs}" 
@@ -40,35 +36,28 @@
 
 
 
-            <Picker x:Name="CboLocalizacionItem" Title="Localización del Item" >
+            <Picker x:Name="CboLocalizacionItem" Title="Localización del Item" 
+                     ItemsSource="{Binding ItemLocalizationss}"
+                     ItemDisplayBinding="{Binding Localization}"/>
 
-                <Picker.Items>
 
-                    <x:String>Cuarto Principal</x:String>
 
-                </Picker.Items>
 
-            </Picker>
+            <Picker x:Name="CboProveedor" Title="Proveedor"
+                    ItemsSource="{Binding Supplier}"
+                    ItemDisplayBinding="{Binding SupplierName}"
+                    />
 
-            <Picker x:Name="CboProveedor" Title="Proveedor" >
 
-                <Picker.Items>
 
-                    <x:String>Extreme Tec</x:String>
+            <Picker x:Name="CboCurrency" Title="Moneda" 
+                    ItemsSource="{Binding Currency}"
+                    ItemDisplayBinding="{Binding CurrencySym}"
+                    />
 
-                </Picker.Items>
 
-            </Picker>
 
-            <Picker x:Name="CboCurrency" Title="Moneda" >
 
-                <Picker.Items>
-
-                    <x:String>CRC</x:String>
-
-                </Picker.Items>
-
-            </Picker>
 
 
             <Button Text="Guardar" x:Name="BtnGuardar" BackgroundColor="Indigo" HeightRequest="50" WidthRequest="150" 
