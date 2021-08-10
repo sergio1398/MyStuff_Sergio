@@ -10,10 +10,10 @@ namespace MyStuff_Sergio.ViewModels
 {
     public class ItemViewModel : BaseViewModel
     {
-        public ItemCategory MiItemcategoria { get; set; }
+        public ItemCategoryViewModel MiItemcategoriaVM { get; set; } // se trae desde el view model de la marca
         public ObservableCollection<ItemCategory> Tiposs { get; set; }
 
-        public BrandViewModel MiMarcaVM { get; set; }
+        public BrandViewModel MiMarcaVM { get; set; }// se trae desde el view model de la marca
         public ObservableCollection<Brand> MyBrands { get; set; }
 
         public ItemLocalization MyItemLocalization { get; set; }
@@ -26,18 +26,19 @@ namespace MyStuff_Sergio.ViewModels
         public ObservableCollection<Currency> Currency { get; set; }
 
         public Item MyItem { get; set; }
+        
 
         public ItemViewModel()
         {
-            MiItemcategoria = new ItemCategory();
-            MiMarcaVM = new BrandViewModel();
+            MiItemcategoriaVM = new ItemCategoryViewModel();// este es VM
+            MiMarcaVM = new BrandViewModel();// solo esta es ViewModel
             MyItemLocalization = new ItemLocalization();
             MySupplier = new Supplier();
             MyCurrency = new Currency();
             MyItem = new Item();
 
             ObtenerCategoria();
-            //ObtenerMarcas();
+            ObtenerMarcass();
             GetItemLocalization();
             GetSuppliers();
             GetCurrency();
@@ -109,8 +110,8 @@ namespace MyStuff_Sergio.ViewModels
             {
                 IsBusy = false;
             }
-        
-        
+
+
         }
 
         public ObservableCollection<ItemLocalization> GetItemLocalization()
@@ -134,35 +135,17 @@ namespace MyStuff_Sergio.ViewModels
 
         }
 
-        public ObservableCollection<Brand> ObtenerMarcas()
+        public ObservableCollection<Brand> ObtenerMarcass()
         {
 
-            return MyBrands = new ObservableCollection<Brand>( MiMarcaVM.ObtenerMarcas());
+            return MyBrands = new ObservableCollection<Brand>(MiMarcaVM.ObtenerMarcas());
 
         }
 
         public ObservableCollection<ItemCategory> ObtenerCategoria()
         {
-            
 
-            if (IsBusy) return null;
-            IsBusy = true;
-
-            try
-            {
-
-             return Tiposs = new ObservableCollection<ItemCategory>(MiItemcategoria.ObtenerItemCategories());
-
-            }
-            catch (Exception)
-            {
-                return null;
-              
-            }
-            finally 
-            {
-                IsBusy = false;
-            }
+            return Tiposs = new ObservableCollection<ItemCategory>(MiItemcategoriaVM.ObtenerItemCategory());
 
         }
 

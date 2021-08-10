@@ -6,11 +6,6 @@
         <StackLayout Padding="10,50,20,10">
 
 
-            <!-- nombre
-            descripcion
-            costo
-            numserial -->
-
             <Entry x:Name="TxtBrandId" Text="{Binding BrandId}" IsVisible="False" />
 
             <Entry x:Name="TxtBrandName" Text="{Binding BrandName}"/>
@@ -23,11 +18,6 @@
 
             <Button Text="Eliminar" x:Name="BtnEliminar" Clicked="BtnEliminar_Clicked" BackgroundColor="Red" HeightRequest="50" WidthRequest="150" 
                         HorizontalOptions="Center"  CornerRadius="5"  Margin="0,0,0,0"/>
-
-
-
-
-
 
         </StackLayout>
     </ContentPage.Content>

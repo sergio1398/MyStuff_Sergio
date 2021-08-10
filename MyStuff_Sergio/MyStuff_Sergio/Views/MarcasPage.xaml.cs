@@ -14,12 +14,12 @@ namespace MyStuff_Sergio.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MarcasPage : ContentPage
     {
-        ItemViewModel VmItem;
+        BrandViewModel MyBrandVM;
 
         public MarcasPage()
         {
             InitializeComponent();
-            BindingContext = VmItem = new ItemViewModel();
+            BindingContext = MyBrandVM = new BrandViewModel();
           
         }
 
@@ -27,7 +27,7 @@ namespace MyStuff_Sergio.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            LstMarcas.ItemsSource = VmItem.ObtenerMarcas();
+            LstMarcas.ItemsSource = MyBrandVM.ObtenerMarcas();
         }
 
 

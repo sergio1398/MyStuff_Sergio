@@ -44,8 +44,10 @@ namespace MyStuff_Sergio.Views
 
         }
 
-        private void BtnCategoria_Clicked(object sender, EventArgs e)
+        private async void BtnCategoria_Clicked(object sender, EventArgs e)
         {
+
+            await Navigation.PushAsync(new ItemCategoryPage());
 
         }
 
