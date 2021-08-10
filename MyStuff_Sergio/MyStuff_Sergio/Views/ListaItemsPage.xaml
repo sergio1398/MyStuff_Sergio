@@ -15,7 +15,6 @@
                             <ImageCell Text="{Binding ItemName}" TextColor="Black" 
                                        Detail="{Binding ItemDescription}"
                                        ImageSource="{Binding DisplayImageUri}"
-                                       
                                        />
 
                         </DataTemplate>

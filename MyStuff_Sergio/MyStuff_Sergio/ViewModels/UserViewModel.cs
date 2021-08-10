@@ -85,7 +85,9 @@ namespace MyStuff_Sergio.ViewModels
             }
             finally
             {
+               
                 IsBusy = false;
+                await Task.WhenAll();
             }
 
 

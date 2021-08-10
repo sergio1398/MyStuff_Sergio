@@ -85,7 +85,6 @@ namespace MyStuff_Sergio.Models
                 R = true;
             }
 
-
             return R;
         
         
@@ -123,7 +122,6 @@ namespace MyStuff_Sergio.Models
             {
                 R = true;
             }
-
 
             return R;
 

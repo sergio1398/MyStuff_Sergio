@@ -37,8 +37,10 @@ namespace MyStuff_Sergio.Views
             await Navigation.PopAsync();
         }
 
-        private void BtnMarcas_Clicked(object sender, EventArgs e)
+        private async void BtnMarcas_Clicked(object sender, EventArgs e)
         {
+
+            await Navigation.PushAsync(new MarcasPage());
 
         }
 

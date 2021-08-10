@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using MyStuff_Sergio.Models;
+using MyStuff_Sergio.ViewModels;
 
 namespace MyStuff_Sergio.ViewModels
 {
@@ -12,7 +13,7 @@ namespace MyStuff_Sergio.ViewModels
         public ItemCategory MiItemcategoria { get; set; }
         public ObservableCollection<ItemCategory> Tiposs { get; set; }
 
-        public Brand MiMarca { get; set; }
+        public BrandViewModel MiMarcaVM { get; set; }
         public ObservableCollection<Brand> MyBrands { get; set; }
 
         public ItemLocalization MyItemLocalization { get; set; }
@@ -29,14 +30,14 @@ namespace MyStuff_Sergio.ViewModels
         public ItemViewModel()
         {
             MiItemcategoria = new ItemCategory();
-            MiMarca = new Brand();
+            MiMarcaVM = new BrandViewModel();
             MyItemLocalization = new ItemLocalization();
             MySupplier = new Supplier();
             MyCurrency = new Currency();
             MyItem = new Item();
 
             ObtenerCategoria();
-            ObtenerMarcas();
+            //ObtenerMarcas();
             GetItemLocalization();
             GetSuppliers();
             GetCurrency();
@@ -136,23 +137,8 @@ namespace MyStuff_Sergio.ViewModels
         public ObservableCollection<Brand> ObtenerMarcas()
         {
 
-            if (IsBusy) return null;
-            IsBusy = true;
+            return MyBrands = new ObservableCollection<Brand>( MiMarcaVM.ObtenerMarcas());
 
-            try
-            {
-                return MyBrands = new ObservableCollection<Brand>(MiMarca.ObtenerBrands());
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        
         }
 
         public ObservableCollection<ItemCategory> ObtenerCategoria()

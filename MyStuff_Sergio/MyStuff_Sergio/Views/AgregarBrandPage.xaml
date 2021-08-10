@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyStuff_Sergio.Views.AgregarBrandPage">
+    <ContentPage.Content>
+        
+        
+        <StackLayout>
+
+            <Entry x:Name="TxtBrandName" Placeholder="Escriba el nombre de la marca"/>
+
+            <Entry x:Name="TxtUserId" Text="2005" IsEnabled="False" />
+
+
+            <Button Text="Guardar" x:Name="BtnGuardar" Clicked="BtnGuardar_Clicked" BackgroundColor="Green" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center"  CornerRadius="5"  Margin="0,0,0,0"/>
+
+
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>

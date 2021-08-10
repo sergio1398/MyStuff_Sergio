@@ -125,17 +125,19 @@ namespace MyStuff_Sergio.Views
                 {
                     
 
-                    bool R = await UsuarioVM.GuardarUsuario(TxtUsuario.Text.Trim(), TxtNombreUsuario.Text.Trim(), TxtPassword.Text.Trim(), NumeroTelefono.Text.Trim(), TxtBackUpEmail.Text.Trim());
+                    bool R =  await UsuarioVM.GuardarUsuario(TxtUsuario.Text.Trim(), TxtNombreUsuario.Text.Trim(), TxtPassword.Text.Trim(), NumeroTelefono.Text.Trim(), TxtBackUpEmail.Text.Trim());
 
                     if (R)
                     {
                         await DisplayAlert("Aviso", "Usuario agregado correctamente", "OK");
 
                         await Navigation.PopAsync();
+                        
                     }
                     else
                     {
                         await DisplayAlert("Aviso", "Error el usuario no se agregó", "OK");
+                        
                     }
 
                 }
@@ -144,18 +146,21 @@ namespace MyStuff_Sergio.Views
                     if (!EmailCorrecto(TxtUsuario.Text.Trim()))
                     {
                         await DisplayAlert("Aviso", "Error el email no se ingresó con el formato incorrecto", "OK");
+                        
                         return;
                     }
 
                     if (!EmailCorrecto(TxtBackUpEmail.Text.Trim()))
                     {
                         await DisplayAlert("Aviso", "Error el email de respaldo no se ingresó con el formato incorrecto", "OK");
+                        
                         return;
                     }
 
                     if (!ContraCorrecto())
                     {
                         await DisplayAlert("Aviso", "Error las contraseñas no son iguales, intentélo de nuevo", "OK");
+                        
                         return;
                     }
 
@@ -165,6 +170,7 @@ namespace MyStuff_Sergio.Views
             else
             {
                 await DisplayAlert("Aviso", "Los campos no pueden estar vacios, por favor ingreselos nuevamente", "OK");
+               
             }
 
 
