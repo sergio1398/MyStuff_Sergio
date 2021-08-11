@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyStuff_Sergio.Views.EditarSupplierPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Entry x:Name="TxtSupplierId" Text="{Binding SupplierId}" IsVisible="False"/>
+
+            <Entry x:Name="TxtSupplierName" Text="{Binding SupplierName}" />
+
+            <Entry x:Name="TxtSupplierPhone" Text="{Binding SupplierPhone}" />
+
+            <Entry x:Name="TxtSupplierEmail" Text="{Binding SupplierEmail}" />
+
+            <Entry x:Name="TxtUserId" Text="2005" IsVisible="False" />
+
+            <Button Text="Guardar" x:Name="BtnGuardar" Clicked="BtnGuardar_Clicked" BackgroundColor="Green" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center"  CornerRadius="5"  Margin="0,0,0,0"/>
+
+            <Button Text="Eliminar" x:Name="BtnEliminarSupplier" Clicked="BtnEliminarSupplier_Clicked" BackgroundColor="Red" HeightRequest="50" WidthRequest="150" 
+                        HorizontalOptions="Center"  CornerRadius="5"  Margin="0,0,0,0"/>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -19,7 +19,7 @@ namespace MyStuff_Sergio.ViewModels
         public ItemLocalizationViewModel MyItemLocalizationVM { get; set; } // cambio a VM
         public ObservableCollection<ItemLocalization> ItemLocalizationss { get; set; }
 
-        public Supplier MySupplier { get; set; }
+        public SupplierViewModel MySupplier { get; set; }// cambio a VM
         public ObservableCollection<Supplier> Supplier { get; set; }
 
         public Currency MyCurrency { get; set; }
@@ -33,14 +33,14 @@ namespace MyStuff_Sergio.ViewModels
             MiItemcategoriaVM = new ItemCategoryViewModel();// este es VM
             MiMarcaVM = new BrandViewModel();// solo esta es ViewModel
             MyItemLocalizationVM = new ItemLocalizationViewModel();
-            MySupplier = new Supplier();
+            MySupplier = new SupplierViewModel();
             MyCurrency = new Currency();
             MyItem = new Item();
 
             ObtenerCategoria();
             ObtenerMarcass();
             GetItemLocalization();
-            GetSuppliers();
+            GetSupplierss();
             GetCurrency();
 
         }
@@ -91,26 +91,10 @@ namespace MyStuff_Sergio.ViewModels
 
         }
 
-        public ObservableCollection<Supplier> GetSuppliers()
+        public ObservableCollection<Supplier> GetSupplierss()
         {
 
-            if (IsBusy) return null;
-            IsBusy = true;
-
-            try
-            {
-                return Supplier = new ObservableCollection<Supplier>(MySupplier.GetSuppliers());
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-
+            return Supplier = new ObservableCollection<Supplier>(MySupplier.GetSuppliersVM());
 
         }
 

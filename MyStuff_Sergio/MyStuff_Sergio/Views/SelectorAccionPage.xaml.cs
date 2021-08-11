@@ -56,9 +56,9 @@ namespace MyStuff_Sergio.Views
             await Navigation.PushAsync(new ItemLocalizationPage());
         }
 
-        private void BtnProveedores_Clicked(object sender, EventArgs e)
+        private async void BtnProveedores_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new SupplierPage());
         }
     }
 }

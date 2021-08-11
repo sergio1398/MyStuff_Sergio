@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MyStuff_Sergio.Models
 {
@@ -54,6 +55,99 @@ namespace MyStuff_Sergio.Models
 
 
             return Suppliers;
+
+        }
+
+        public async Task<bool> GuardarSupplier()
+        {
+            bool R = false;
+
+            string RutaConsumo = ObjetosGlobales.RutaProduccion + "suppliers";
+
+            var Supplier = new RestClient(RutaConsumo);
+
+            var Request = new RestRequest(Method.POST);
+
+            Request.AddHeader(ObjetosGlobales.ApiKeyName , ObjetosGlobales.ApiKeyValue);
+
+            Request.AddHeader("Content-Type","application/json");
+
+            string Body = JsonConvert.SerializeObject(this);
+
+            Request.AddParameter("application/json", Body, ParameterType.RequestBody);
+
+            IRestResponse Response = await Supplier.ExecuteAsync(Request);
+
+            HttpStatusCode StatusCode = Response.StatusCode;
+
+            if (StatusCode == HttpStatusCode.Created)
+            {
+                R = true;
+            }
+
+            return R;
+
+        }
+
+
+        public async Task<bool> EditarSupplier()
+        {
+            bool R = false;
+
+
+            string RutaConsumo = string.Format(ObjetosGlobales.RutaProduccion + "suppliers/{0}", SupplierId);
+
+            var Supplier = new RestClient(RutaConsumo);
+
+            var Request = new RestRequest(Method.PUT);
+
+            Request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKeyValue);
+
+            Request.AddHeader("Content-Type","application/json");
+
+            string Body = JsonConvert.SerializeObject(this);
+
+            Request.AddParameter("application/json", Body , ParameterType.RequestBody );
+
+            IRestResponse Response = await Supplier.ExecuteAsync(Request);
+
+            HttpStatusCode StatusCode = Response.StatusCode;
+
+            if (StatusCode == HttpStatusCode.NoContent)
+            {
+                R = true;
+            }
+
+            return R;
+
+        }
+
+        public async Task<bool> EliminarSupplier()
+        {
+            bool R = false;
+
+            string RutaConsumo = string.Format(ObjetosGlobales.RutaProduccion + "suppliers/{0}", SupplierId);
+
+            var Supplier = new RestClient(RutaConsumo);
+
+            var Request = new RestRequest(Method.DELETE);
+
+            Request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKeyValue);
+
+            Request.AddHeader("Content-Type", "application/json");
+
+            Request.AddParameter("application/json", ParameterType.RequestBody);
+
+            IRestResponse Response = await Supplier.ExecuteAsync(Request);
+
+            HttpStatusCode StatusCode = Response.StatusCode;
+
+            if (StatusCode == HttpStatusCode.NoContent)
+            {
+                R = true;
+            }
+
+            return R;
 
         }
 
