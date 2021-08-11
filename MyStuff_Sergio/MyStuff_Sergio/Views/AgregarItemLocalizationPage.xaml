@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyStuff_Sergio.Views.AgregarItemCategoryPage"
-             Title="Agregar Nueva Categoría">
+             x:Class="MyStuff_Sergio.Views.AgregarItemLocalizationPage">
     <ContentPage.Content>
         <StackLayout>
 
-            <Entry x:Name="TxtCategory" Placeholder="Escriba el nombre de la categoría"/>
+            <Entry x:Name="TxtLocalization" Placeholder="Escriba el nombre de la localización"/>
 
             <Entry x:Name="TxtUserId" Text="2005" IsEnabled="False" />
 

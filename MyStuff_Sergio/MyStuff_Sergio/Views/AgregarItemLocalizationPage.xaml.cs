@@ -11,20 +11,21 @@ using MyStuff_Sergio.ViewModels;
 namespace MyStuff_Sergio.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AgregarItemCategoryPage : ContentPage
+    public partial class AgregarItemLocalizationPage : ContentPage
     {
-        ItemCategoryViewModel MyItemCategoryVM;
 
-        public AgregarItemCategoryPage()
+        ItemLocalizationViewModel ItemLocalizationVM;
+
+        public AgregarItemLocalizationPage()
         {
             InitializeComponent();
-            MyItemCategoryVM = new ItemCategoryViewModel();
+            ItemLocalizationVM = new ItemLocalizationViewModel();
         }
 
         private bool ValidarCamposNull()
         {
 
-            if (TxtCategory.Text != null &&
+            if (TxtLocalization.Text != null &&
                 TxtUserId.Text != null)
             {
 
@@ -38,23 +39,24 @@ namespace MyStuff_Sergio.Views
         private bool ValidarCamposVacios()
         {
 
-            if (!string.IsNullOrEmpty(TxtCategory.Text.Trim()) &&
+            if (!string.IsNullOrEmpty(TxtLocalization.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtUserId.Text.Trim()))
             {
                 return true;
             }
 
             return false;
-
         }
+
 
         private async void BtnGuardar_Clicked(object sender, EventArgs e)
         {
+
             if (ValidarCamposNull() && ValidarCamposVacios())
             {
                 int UserId = Convert.ToInt32(TxtUserId.Text.Trim());
 
-                bool R = await MyItemCategoryVM.GurdarItemCategoria(TxtCategory.Text.Trim(), UserId);
+                bool R = await ItemLocalizationVM.GurdarItemLocalizacion(TxtLocalization.Text.Trim(), UserId);
 
                 if (R)
                 {
@@ -73,6 +75,7 @@ namespace MyStuff_Sergio.Views
             {
                 await DisplayAlert("Error", "Los campos no pueden estar vacios, por favor digite los datos", "OK");
             }
+
         }
 
 

@@ -5,6 +5,7 @@ using System.Net;
 using RestSharp;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace MyStuff_Sergio.Models
 {
@@ -52,6 +53,108 @@ namespace MyStuff_Sergio.Models
             return Localizacion;
         
         
+        }
+
+
+        public async Task<bool> GuardarItemLocalization()
+        {
+
+            bool R = false;
+
+            string RutaConsumo = ObjetosGlobales.RutaProduccion + "ItemLocalizations";
+
+            var client = new RestClient(RutaConsumo);
+
+            var request = new RestRequest(Method.POST);
+
+            // se garega la info de seguridad
+
+            request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKeyValue);
+            request.AddHeader("Content-Type", "application/json");
+
+            // ahora serializamos esta clase ya que se ha definido que se va a enviar un json
+
+            string Body = JsonConvert.SerializeObject(this);
+
+            request.AddParameter("application/json", Body, ParameterType.RequestBody);
+
+            //ejecuta de forma asincrona el proceso
+
+            IRestResponse Respuesta = await client.ExecuteAsync(request);
+
+            HttpStatusCode CodigoRespuesta = Respuesta.StatusCode;
+
+            if (CodigoRespuesta == HttpStatusCode.Created)
+            {
+                R = true;
+            }
+
+            return R;
+
+
+        }
+
+        public async Task<bool> EditarItemLocalizaion()
+        {
+
+            bool R = false;
+
+            string RutaConsumo = string.Format(ObjetosGlobales.RutaProduccion + "ItemLocalizations/{0}", ItemLocalizationId);
+
+            var MyItemlocalization = new RestClient(RutaConsumo);
+
+            var request = new RestRequest(method: Method.PUT);
+
+            request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKeyValue);
+            request.AddHeader("Content-Type", "application/json");
+
+            string Body = JsonConvert.SerializeObject(this);
+
+            request.AddParameter("application/json", Body, ParameterType.RequestBody);
+
+            IRestResponse respuesta = await MyItemlocalization.ExecuteAsync(request);
+
+            HttpStatusCode CodigoDeRespuesta = respuesta.StatusCode;
+
+            if (CodigoDeRespuesta == HttpStatusCode.NoContent)
+            {
+                R = true;
+            }
+
+
+            return R;
+
+        }
+
+        public async Task<bool> EliminarItemLocalization()
+        {
+
+            bool R = false;
+
+            string RutaConsumo = string.Format(ObjetosGlobales.RutaProduccion + "ItemLocalizations/{0}", ItemLocalizationId);
+
+            var itemLocalization = new RestClient(RutaConsumo);
+
+            var request = new RestRequest(method: Method.DELETE);
+
+            request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKeyValue);
+            request.AddHeader("Content-Type", "application/json");
+
+
+            request.AddParameter("application/json", ParameterType.RequestBody);
+
+            IRestResponse respuesta = await itemLocalization.ExecuteAsync(request);
+
+            HttpStatusCode CodigoDeRespuesta = respuesta.StatusCode;
+
+            if (CodigoDeRespuesta == HttpStatusCode.NoContent)
+            {
+                R = true;
+            }
+
+
+            return R;
+
         }
 
 

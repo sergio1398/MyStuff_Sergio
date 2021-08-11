@@ -16,7 +16,7 @@ namespace MyStuff_Sergio.ViewModels
         public BrandViewModel MiMarcaVM { get; set; }// se trae desde el view model de la marca
         public ObservableCollection<Brand> MyBrands { get; set; }
 
-        public ItemLocalization MyItemLocalization { get; set; }
+        public ItemLocalizationViewModel MyItemLocalizationVM { get; set; } // cambio a VM
         public ObservableCollection<ItemLocalization> ItemLocalizationss { get; set; }
 
         public Supplier MySupplier { get; set; }
@@ -32,7 +32,7 @@ namespace MyStuff_Sergio.ViewModels
         {
             MiItemcategoriaVM = new ItemCategoryViewModel();// este es VM
             MiMarcaVM = new BrandViewModel();// solo esta es ViewModel
-            MyItemLocalization = new ItemLocalization();
+            MyItemLocalizationVM = new ItemLocalizationViewModel();
             MySupplier = new Supplier();
             MyCurrency = new Currency();
             MyItem = new Item();
@@ -116,22 +116,8 @@ namespace MyStuff_Sergio.ViewModels
 
         public ObservableCollection<ItemLocalization> GetItemLocalization()
         {
-            if (IsBusy) return null;
-            IsBusy = true;
-
-            try
-            {
-                return ItemLocalizationss = new ObservableCollection<ItemLocalization>(MyItemLocalization.ObtenerLocalizacionItem());
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+           
+            return ItemLocalizationss = new ObservableCollection<ItemLocalization>(MyItemLocalizationVM.GetItemLocalization());
 
         }
 

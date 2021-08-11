@@ -51,9 +51,9 @@ namespace MyStuff_Sergio.Views
 
         }
 
-        private void BtnLocalizacion_Clicked(object sender, EventArgs e)
+        private async void BtnLocalizacion_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new ItemLocalizationPage());
         }
 
         private void BtnProveedores_Clicked(object sender, EventArgs e)
