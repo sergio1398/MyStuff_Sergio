@@ -19,7 +19,7 @@ namespace MyStuff_Sergio.Views
         {
             InitializeComponent();
             BindingContext = VmItem = new ItemViewModel();
-            VmItem.MyItem.UserId = 2005;
+            VmItem.MyItem.UserId = ObjetosGlobales.MiUsusarioGlobal.UserId;
 
             LstItems.ItemsSource = VmItem.ListarItems();
         }

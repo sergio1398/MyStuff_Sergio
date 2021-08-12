@@ -28,8 +28,6 @@ namespace MyStuff_Sergio.Models
         public ObservableCollection<Brand> ObtenerBrands()
         {
 
-            ObservableCollection<Brand> marca = null;
-
             string Ruta = string.Format("brands");
 
             string RutaConsumo = ObjetosGlobales.RutaProduccion + Ruta;
@@ -46,12 +44,11 @@ namespace MyStuff_Sergio.Models
 
             if (CodigoRespuesta == HttpStatusCode.OK)
             {
+                        
+                return JsonConvert.DeserializeObject<ObservableCollection<Brand>>(Response.Content); 
 
-                marca = JsonConvert.DeserializeObject<ObservableCollection<Brand>>(Response.Content);
-
-                return marca;
             }
-            return marca;
+            return null;
 
         }
 

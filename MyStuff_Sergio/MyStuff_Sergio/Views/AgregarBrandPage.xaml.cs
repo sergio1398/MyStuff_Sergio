@@ -55,9 +55,9 @@ namespace MyStuff_Sergio.Views
 
             if (ValidarCamposNull() && ValidarCamposVacios())
             {
-                int UserId = Convert.ToInt32(TxtUserId.Text.Trim());
+                //int UserId = Convert.ToInt32(TxtUserId.Text.Trim());
 
-                bool R = await MyBrandVM.GurdarBrand(TxtBrandName.Text.Trim(), UserId);
+                bool R = await MyBrandVM.GurdarBrand(TxtBrandName.Text.Trim(), ObjetosGlobales.MiUsusarioGlobal.UserId);
 
                 if (R)
                 {

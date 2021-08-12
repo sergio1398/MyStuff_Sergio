@@ -120,6 +120,8 @@ namespace MyStuff_Sergio.Models
 
             if (CodigoRespuesta == HttpStatusCode.OK)
             {
+                ObjetosGlobales.MiUsusarioGlobal = JsonConvert.DeserializeObject<User>(Respuesta.Content);
+
                 R = true;
             }
 

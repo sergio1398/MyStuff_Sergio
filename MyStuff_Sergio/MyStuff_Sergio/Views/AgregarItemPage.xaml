@@ -4,72 +4,78 @@
              x:Class="MyStuff_Sergio.Views.AgregarItemPage"
              Title="Agregar Activo">
     <ContentPage.Content>
-        <StackLayout Padding="10,50,20,10">
+        <ScrollView>
+
+            <StackLayout Padding="10,50,20,10">
+
+                <Entry x:Name="TxtImagenItem" Placeholder="Ingrese el URL de la imagen"/>
+
+                <Entry x:Name="TxtNombre" Placeholder="Nombre de activo"/>
+
+                <Entry x:Name="TxtDescripcion" Placeholder="Descripción del activo"/>
 
 
-            <!-- nombre
-            descripcion
-            costo
-            numserial -->
+                <Entry x:Name="TxtCosto" Placeholder="Costo del activo"/>
 
-            <Entry x:Name="TxtNombre" Placeholder="Nombre de activo"/>
+                <Entry x:Name="TxtSerie" Placeholder="Serie de activo"/>
 
-            <Entry x:Name="TxtDescripcion" Placeholder="Descripción del activo"/>
+                <Entry x:Name="TxtDepreciacion" Placeholder="Nombre de depreciación"/>
 
-
-            <Entry x:Name="TxtCosto" Placeholder="Costo del activo"/>
-
-            <Entry x:Name="TxtSerie" Placeholder="Serie de activo"/>
-
-            <Entry x:Name="TxtDepreciacion" Placeholder="Nombre de depreciación"/>
-
-            <Picker x:Name="CboMarca" Title="Marca"
-                    ItemsSource="{Binding MyBrands}"
+                <Picker x:Name="CboMarca" Title="Marca"
                     ItemDisplayBinding="{Binding BrandName}"
+                    SelectedIndexChanged="CboMarca_SelectedIndexChanged"
                     />
 
 
-            <Picker x:Name="CboCategoria" Title="Categoría" 
+                <Picker x:Name="CboCategoria" Title="Categoría" 
                     ItemsSource="{Binding Tiposs}" 
                     ItemDisplayBinding="{Binding Category}"
+                    SelectedIndexChanged="CboCategoria_SelectedIndexChanged"
                     />
 
 
 
-            <Picker x:Name="CboLocalizacionItem" Title="Localización del Item" 
+                <Picker x:Name="CboLocalizacionItem" Title="Localización del Item" 
                      ItemsSource="{Binding ItemLocalizationss}"
-                     ItemDisplayBinding="{Binding Localization}"/>
+                     ItemDisplayBinding="{Binding Localization}"
+                     SelectedIndexChanged="CboLocalizacionItem_SelectedIndexChanged"
+                     />
 
 
 
 
-            <Picker x:Name="CboProveedor" Title="Proveedor"
+                <Picker x:Name="CboProveedor" Title="Proveedor"
                     ItemsSource="{Binding Supplier}"
                     ItemDisplayBinding="{Binding SupplierName}"
+                    SelectedIndexChanged="CboProveedor_SelectedIndexChanged"
                     />
 
 
 
-            <Picker x:Name="CboCurrency" Title="Moneda" 
+                <Picker x:Name="CboCurrency" Title="Moneda" 
                     ItemsSource="{Binding Currency}"
                     ItemDisplayBinding="{Binding CurrencySym}"
+                    SelectedIndexChanged="CboCurrency_SelectedIndexChanged"
                     />
 
 
+                <Entry x:Name="TxtNumeroFactura" Placeholder="Numero Factura"/>
 
 
 
-
-            <Button Text="Guardar" x:Name="BtnGuardar" BackgroundColor="Indigo" HeightRequest="50" WidthRequest="150" 
+                <Button Text="Guardar" x:Name="BtnGuardar" BackgroundColor="Indigo" HeightRequest="50" WidthRequest="150" 
                         HorizontalOptions="Center" Clicked="BtnGuardar_Clicked" CornerRadius="5"  Margin="0,0,0,0"/>
 
-            <Button Text="Cancelar" x:Name="BtnCancelar" BackgroundColor="DarkRed" HeightRequest="50" WidthRequest="150" 
+                <Button Text="Cancelar" x:Name="BtnCancelar" BackgroundColor="DarkRed" HeightRequest="50" WidthRequest="150" 
                         HorizontalOptions="Center" Clicked="BtnCancelar_Clicked" CornerRadius="5"  Margin="0,0,0,0"/>
 
 
 
 
 
-        </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>

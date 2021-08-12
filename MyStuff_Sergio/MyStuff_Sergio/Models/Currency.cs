@@ -25,7 +25,7 @@ namespace MyStuff_Sergio.Models
 
         public ObservableCollection<Currency> GetCurrency()
         {
-            ObservableCollection<Currency> Currency = null;
+            //ObservableCollection<Currency> Currency = null;
 
             string Ruta = string.Format("currencies");
 
@@ -43,12 +43,14 @@ namespace MyStuff_Sergio.Models
 
             if (CodigoRespuesta == HttpStatusCode.OK)
             {
-                Currency = JsonConvert.DeserializeObject<ObservableCollection<Currency>>(Response.Content);
+                //  Currency = JsonConvert.DeserializeObject<ObservableCollection<Currency>>(Response.Content);
 
-                return Currency;
+                //return Currency;
+
+                return JsonConvert.DeserializeObject<ObservableCollection<Currency>>(Response.Content);
             }
 
-            return Currency;
+            return null;
         
         }
 
